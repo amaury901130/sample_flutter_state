@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'counter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sample_state_provider/counter_riverpod.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,11 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BlocProvider(
-        create: (_) => CounterCubit(),
-        child: const CounterBlocPage(),
-      ),
-      //home: const ProviderScope(child: CounterRiverpodPage()),
+      home: const ProviderScope(child: CounterRiverpodPage()),
     );
   }
 }
